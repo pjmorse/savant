@@ -20,7 +20,7 @@ class Savant::FactTable < ActiveRecord::Base
       @calls = []
     end
 
-    [:string, :integer, :float, :boolean, :time].each do |type|
+    [:string, :integer, :float, :boolean, :time, :date, :datetime].each do |type|
       define_method type do |name, &blk|
         @calls << [name, type, blk]
       end

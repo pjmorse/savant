@@ -11,7 +11,7 @@ describe "basic aggregation" do
       end
 
       dimensions do
-        integer(:year) { albums.year }
+        date(:released_on) { albums.released_on }
         integer(:song_id) { songs.id }
         integer(:album_id) { albums.id }
 
@@ -36,5 +36,7 @@ describe "basic aggregation" do
 
     artist_fact = ArtistFact.grouped_by(:artist_name, :album_name)
     artist_fact.length.should == 1
+    artist_fact.first.song_count.should == 2
+    artist_fact.first.album_count.should == 1
   end
 end
