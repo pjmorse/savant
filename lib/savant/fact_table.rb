@@ -86,7 +86,7 @@ class Savant::FactTable < ActiveRecord::Base
   end
 
   def self.facts
-    "(#{all.to_sql}) as #{self.table_name}"
+    "(#{all.to_sql}) as \"#{self.table_name}\""
   end
 
   def self.add_measure(measure)
