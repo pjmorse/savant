@@ -1,6 +1,16 @@
 # Savant
 
-TODO: Write a gem description
+TODO:
+- More tests
+- Look into not inheriting from ActiveRecord::Base
+- use method_missing for field type definitiong dsl
+- Travis
+- Make public
+- Introspect on measures / dimensions
+- Add metadata to measures / dimensions
+- Documentation and use cases
+
+- Write a gem description
 
 ## Installation
 
