@@ -15,7 +15,7 @@ describe "basic aggregation" do
         integer(:song_id) { songs.id }
         integer(:album_id) { albums.id }
 
-        integer(:album_name) { albums.name }
+        string(:album_name) { albums.name }
         string(:artist_name) { artists.name }
       end
 

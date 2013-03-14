@@ -19,6 +19,7 @@ ActiveRecord::Base.silence do
 
     create_table "artists", :force => true do |t|
       t.text     "name"
+      t.boolean  "deceased"
       t.datetime "created_at",  :null => false
       t.datetime "updated_at",  :null => false
     end
