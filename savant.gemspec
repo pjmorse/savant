@@ -4,9 +4,12 @@ require File.expand_path('../lib/savant/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Joe Lind", "Thomas Mayfield"]
   gem.email         = ["info@terriblelabs.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{ Savant extends ActiveRecord by allowing you to easily
+                          create queries and reports for your application's models
+                          by defining aggregate models in terms of dimensions
+                          and measures. }
+  gem.summary       = %q{ Savant: objective aggregate queries and reporting for ActiveRecord. }
+  gem.homepage      = "http://github.com/terribelabs/savant"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
