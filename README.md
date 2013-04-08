@@ -1,16 +1,17 @@
 # Savant
 
+Savant extends ActiveRecord by allowing you to easily create queries and reports
+for your application's models by defining aggregate models in terms of dimensions
+and measures.
+
+*This is a pre-beta work-in-progress, and should not be used in production by
+those without a sense of adventure. :-)*
+
 TODO:
-- More tests
-- Look into not inheriting from ActiveRecord::Base
-- use method_missing for field type definitiong dsl
-- Travis
-- Make public
 - Introspect on measures / dimensions
 - Add metadata to measures / dimensions
 - Documentation and use cases
-
-- Write a gem description
+- A gem description
 
 ## Installation
 
@@ -28,7 +29,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Examples!
 
 ## Contributing
 
