@@ -1,5 +1,7 @@
 # Savant
 
+[![Build Status](https://travis-ci.org/terriblelabs/savant.png)](https://travis-ci.org/terriblelabs/savant)
+
 Savant extends ActiveRecord by allowing you to easily create queries and reports
 for your application's models by defining aggregate models in terms of dimensions
 and measures.
