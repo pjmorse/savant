@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'squeel'
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'debugger'
+  gem.add_development_dependency 'database_cleaner'
   gem.add_development_dependency 'sqlite3'
   gem.add_development_dependency 'guard-rspec'
   gem.add_development_dependency 'rb-fsevent'

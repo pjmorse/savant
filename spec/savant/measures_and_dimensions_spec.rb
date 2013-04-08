@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "basic aggregation" do
+describe "measure and dimension enumeration and metadata" do
   it "enumerates its measures" do
     fact = Class.new(::Savant::FactTable) do
       measures do
@@ -25,7 +25,6 @@ describe "basic aggregation" do
 
 
   it "has descriptions associated with its measures" do
-    pending
     fact = Class.new(::Savant::FactTable) do
       measures do
         integer(:song_count, "Song Count") { count(song_id) }
@@ -37,6 +36,13 @@ describe "basic aggregation" do
   end
 
   it "has descriptions associated with its dimensions" do
-    pending
+    fact = Class.new(::Savant::FactTable) do
+      dimensions do
+        integer(:song_id, "Song ID") { songs.id }
+        integer(:album_id, "Album ID") { albums.id }
+      end
+    end
+
+    fact.dimensions.map(&:description).should =~ ["Song ID", "Album ID"]
   end
 end

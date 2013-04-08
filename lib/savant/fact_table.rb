@@ -4,12 +4,13 @@ class Savant::FactTable < ActiveRecord::Base
   has_no_table
 
   class Column
-    attr_reader :name, :sql_type, :squeel
+    attr_reader :name, :sql_type, :squeel, :description
 
-    def initialize(name, sql_type, squeel)
+    def initialize(name, sql_type, description, squeel)
       @name = name.to_sym
       @sql_type = sql_type
       @squeel = squeel
+      @description = description
     end
   end
 
@@ -21,8 +22,8 @@ class Savant::FactTable < ActiveRecord::Base
     end
 
     [:string, :integer, :float, :boolean, :time, :date, :datetime].each do |type|
-      define_method type do |name, &blk|
-        @calls << [name, type, blk]
+      define_method type do |name, description='', &blk|
+        @calls << [name, type, description, blk]
       end
     end
   end
@@ -35,8 +36,8 @@ class Savant::FactTable < ActiveRecord::Base
     if block_given?
       Proxy.new.tap do |proxy|
         proxy.instance_eval &blk
-        proxy.calls.each do |name, type, block|
-          add_dimension Column.new(name, type, squeel(&block).as(name.to_s))
+        proxy.calls.each do |name, type, description, block|
+          add_dimension Column.new(name, type, description, squeel(&block).as(name.to_s))
         end
       end
     end
@@ -66,8 +67,8 @@ class Savant::FactTable < ActiveRecord::Base
     if block_given?
       Proxy.new.tap do |proxy|
         proxy.instance_eval &blk
-        proxy.calls.each do |name, type, block|
-          add_measure Column.new(name, type, squeel(&block).as(name.to_s))
+        proxy.calls.each do |name, type, description, block|
+          add_measure Column.new(name, type, description, squeel(&block).as(name.to_s))
         end
       end
     end
