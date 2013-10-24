@@ -16,6 +16,7 @@ describe "data type coercion" do
         boolean(:artist_deceased)    { artists.deceased }
         date(:album_released_on)     { albums.released_on }
         datetime(:artist_created_at) { artists.created_at }
+        decimal(:album_cost)         { albums.cost }
       end
 
       measures do
@@ -25,11 +26,12 @@ describe "data type coercion" do
         boolean(:measure_artist_deceased)    { artist_deceased }
         date(:measure_album_released_on)     { album_released_on }
         datetime(:measure_artist_created_at) { artist_created_at }
+        decimal(:measure_album_cost)         { album_cost }
       end
     end
 
     @artist = Artist.create(name: 'Johnny Cash', deceased: true)
-    @album = Album.create(name: 'Classic Cash', artist_id: @artist.id, released_on: Date.yesterday)
+    @album = Album.create(name: 'Classic Cash', artist_id: @artist.id, released_on: Date.yesterday, cost: 3.22)
     @song = Song.create(name: 'Walk The Line', album_id: @album.id, duration_in_seconds: 320.3)
   end
 
@@ -55,6 +57,10 @@ describe "data type coercion" do
 
   it "returns datetimes" do
     TypeFact.grouped_by(:artist_created_at).first.measure_artist_created_at.should be_a Time
+  end
+
+  it "returns decimals" do
+    TypeFact.grouped_by(:album_cost).first.measure_album_cost.should be_a BigDecimal
   end
 
 end

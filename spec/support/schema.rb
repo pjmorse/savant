@@ -15,6 +15,7 @@ ActiveRecord::Base.silence do
       t.date     "released_on"
       t.datetime "created_at", :null => false
       t.datetime "updated_at", :null => false
+      t.decimal  "cost"
     end
 
     create_table "artists", :force => true do |t|
