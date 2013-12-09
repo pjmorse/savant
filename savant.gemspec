@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Savant::VERSION
 
-  gem.add_dependency 'rails'
+  gem.add_dependency 'rails', '~> 3.2'
   gem.add_dependency 'activerecord-tableless', '~> 1.1.3'
   gem.add_dependency 'squeel'
   gem.add_development_dependency 'rspec'
