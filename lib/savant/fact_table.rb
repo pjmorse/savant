@@ -71,9 +71,10 @@ class Savant::FactTable < ActiveRecord::Base
           add_measure Column.new(name, type, description, squeel(&block).as(name.to_s))
         end
       end
+    else
+      @_measures ||= {}
+      @_measures.values
     end
-
-    @_measures.values
   end
 
   private
